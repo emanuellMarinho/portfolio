@@ -11,13 +11,27 @@ document.addEventListener("DOMContentLoaded", function () {
   const reduzMovimento = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
   ).matches;
+  const dispositivoAndroid =
+    document.documentElement.classList.contains("android");
 
   function atualizarCabecalho() {
     cabecalho.classList.toggle("rolagem", window.scrollY > 12);
   }
 
+  let quadroRolagemPendente = false;
+
+  function aoRolar() {
+    if (quadroRolagemPendente) return;
+
+    quadroRolagemPendente = true;
+    window.requestAnimationFrame(function () {
+      atualizarCabecalho();
+      quadroRolagemPendente = false;
+    });
+  }
+
   atualizarCabecalho();
-  window.addEventListener("scroll", atualizarCabecalho, { passive: true });
+  window.addEventListener("scroll", aoRolar, { passive: true });
 
   if (!reduzMovimento && window.matchMedia("(pointer: fine)").matches) {
     let quadroPendente = false;
@@ -83,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
     void botaoTema.offsetWidth;
     botaoTema.classList.add("tema-clicado");
 
-    if (!document.startViewTransition || reduzMovimento) {
+    if (!document.startViewTransition || reduzMovimento || dispositivoAndroid) {
       aplicarTema(proximoEscuro);
       return;
     }

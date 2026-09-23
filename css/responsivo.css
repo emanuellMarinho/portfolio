@@ -78,3 +78,81 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Mantém o movimento no Android sem os filtros que causam repinturas caras. */
+@media (max-width: 820px) {
+  html.android {
+    scroll-behavior: auto;
+  }
+
+  html.android .cabecalho {
+    background: color-mix(in srgb, var(--fundo) 97%, transparent);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  html.android .cabecalho.rolagem {
+    box-shadow: 0 5px 18px rgb(15 42 60 / 8%);
+  }
+
+  html.android[data-tema="escuro"] .cabecalho.rolagem {
+    box-shadow: 0 5px 18px rgb(0 0 0 / 18%);
+  }
+
+  html.android .hero {
+    contain: paint;
+  }
+
+  html.android .hero::before {
+    opacity: 0.14;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  html.android .hero h1 span,
+  html.android .formulario::before {
+    animation: none;
+  }
+
+  html.android .tecnologias li {
+    box-shadow: 0 3px 10px rgb(15 42 60 / 7%);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  html.android .orbita {
+    filter: none;
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  html.android .orbita-um {
+    animation-duration: 12s;
+  }
+
+  html.android .orbita-dois {
+    animation-duration: 14s;
+  }
+
+  html.android .anel {
+    animation-duration: 3.2s;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+  }
+
+  html.android .revelar {
+    will-change: transform, opacity;
+  }
+
+  html.android .revelar.visivel {
+    will-change: auto;
+  }
+
+  html.android .formulario {
+    box-shadow: 0 14px 36px rgb(15 42 60 / 8%);
+  }
+
+  html.android[data-tema="escuro"] .formulario {
+    box-shadow: 0 14px 36px rgb(0 0 0 / 20%);
+  }
+}

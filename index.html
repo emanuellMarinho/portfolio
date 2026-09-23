@@ -12,6 +12,10 @@
     <link rel="icon" href="assets/icones/favicon.svg" type="image/svg+xml" />
     <script>
       (function () {
+        if (/Android/i.test(navigator.userAgent)) {
+          document.documentElement.classList.add("android");
+        }
+
         try {
           var temaSalvo = localStorage.getItem("tema");
           var prefereEscuro = window.matchMedia(
