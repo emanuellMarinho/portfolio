@@ -1,0 +1,28 @@
+:root {
+  color-scheme: light;
+  --fundo: #f6f3ec;
+  --superficie: #fffdf8;
+  --texto: #183448;
+  --texto-secundario: #5f6a70;
+  --azul: #2d5bca;
+  --azul-claro: #dce6fa;
+  --terracota: #bd4829;
+  --linha: #d9d8d0;
+  --fonte: "Source Sans 3", "Segoe UI", sans-serif;
+  --fonte-titulo: "Manrope", "Segoe UI", sans-serif;
+  --largura: 1120px;
+  --sombra: 0 24px 70px rgba(24, 52, 72, 0.1);
+}
+
+html[data-tema="escuro"] {
+  color-scheme: dark;
+  --fundo: #0b1219;
+  --superficie: #111c26;
+  --texto: #edf4f8;
+  --texto-secundario: #aab8c2;
+  --azul: #82a4ff;
+  --azul-claro: #1b2d52;
+  --terracota: #ff8b69;
+  --linha: #2a3945;
+  --sombra: 0 24px 70px rgba(0, 0, 0, 0.32);
+}

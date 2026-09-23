@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Portfólio de Desenvolvedor Full Stack com atuação em desenvolvimento web e TOTVS Fluig."
+    />
+    <meta name="theme-color" content="#f6f3ec" />
+    <title>Portfólio</title>
+    <link rel="icon" href="assets/icones/favicon.svg" type="image/svg+xml" />
+    <script>
+      (function () {
+        try {
+          var temaSalvo = localStorage.getItem("tema");
+          var prefereEscuro = window.matchMedia(
+            "(prefers-color-scheme: dark)",
+          ).matches;
+          if (temaSalvo === "escuro" || (!temaSalvo && prefereEscuro)) {
+            document.documentElement.dataset.tema = "escuro";
+          }
+        } catch (erro) {
+          /* O site continua funcional quando o armazenamento é bloqueado. */
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/variaveis.css" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/componentes.css" />
+    <link rel="stylesheet" href="css/responsivo.css" />
+    <script src="js/principal.js" defer></script>
+  </head>
+  <body id="topo">
+    <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="cabecalho">
+      <div class="container barra-navegacao">
+        <div class="acoes-navegacao">
+          <nav class="navegacao" aria-label="Navegação principal">
+            <a href="#home">Home</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#contato">Contato</a>
+          </nav>
+          <button
+            id="alternar-tema"
+            class="alternar-tema"
+            type="button"
+            aria-label="Ativar modo escuro"
+            aria-pressed="false"
+          >
+            <svg class="icone-sol" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="3.5"></circle>
+              <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+            </svg>
+            <svg class="icone-lua" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.2 15.2A8.5 8.5 0 0 1 8.8 3.8a8.5 8.5 0 1 0 11.4 11.4Z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <section id="home" class="hero" aria-labelledby="titulo-principal">
+        <div class="hero-efeitos" aria-hidden="true">
+          <span class="orbita orbita-um"></span>
+          <span class="orbita orbita-dois"></span>
+          <span class="anel"></span>
+        </div>
+        <div class="container hero-conteudo">
+            <h1 id="titulo-principal">
+              Desenvolvedor<br /><span>Full Stack</span>
+            </h1>
+            <p class="especialidade">Desenvolvimento web e TOTVS Fluig</p>
+            <ul class="tecnologias" aria-label="Tecnologias principais">
+              <li>JavaScript</li>
+              <li>TypeScript</li>
+              <li>Node.js</li>
+              <li>Express</li>
+              <li>APIs REST</li>
+              <li>TOTVS Fluig</li>
+            </ul>
+        </div>
+      </section>
+
+      <section id="sobre" class="secao sobre" aria-labelledby="titulo-sobre">
+        <div class="container sobre-grade">
+          <article class="historia revelar">
+            <p class="rotulo">Sobre</p>
+            <h2 id="titulo-sobre">Minha história com TI</h2>
+            <p>
+              Sou formado em Análise e Desenvolvimento de Sistemas e atuo com
+              tecnologia desde 2023. Comecei como estagiário de projetos,
+              trabalhei com implantação e passei para o desenvolvimento de
+              soluções no ecossistema TOTVS Fluig.
+            </p>
+            <p>
+              Tenho experiência com processos BPM, formulários, widgets,
+              portais, datasets customizados, integrações com sistemas externos
+              e desenvolvimento web.
+            </p>
+          </article>
+
+          <div class="experiencias revelar" aria-labelledby="titulo-experiencias">
+            <p class="rotulo">Experiência</p>
+            <h2 id="titulo-experiencias">Experiência profissional</h2>
+            <ol class="linha-tempo">
+              <li>
+                <span class="periodo">Set. 2026 — atual</span
+                ><strong>Desenvolvedor Full Stack | TOTVS Fluig</strong
+                ><span>Future Station BR</span>
+              </li>
+              <li>
+                <span class="periodo">Jul. 2026 — atual</span
+                ><strong>Desenvolvedor freelancer</strong
+                ><span>Atuação independente</span>
+              </li>
+              <li>
+                <span class="periodo">Dez. 2025 — jul. 2026</span
+                ><strong>Desenvolvedor Fluig</strong
+                ><span>GESTO Tecnologia</span>
+              </li>
+              <li>
+                <span class="periodo">Abr. 2023 — nov. 2025</span
+                ><strong>Analista de implantação Pleno</strong
+                ><span>Digte</span>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="contato"
+        class="secao contato"
+        aria-labelledby="titulo-contato"
+      >
+        <div class="container contato-grade">
+          <div class="contato-cabecalho revelar">
+            <p class="rotulo">Contato</p>
+            <h2 id="titulo-contato">Entre em contato</h2>
+            <p>Preencha os campos para enviar uma mensagem por e-mail.</p>
+          </div>
+
+          <form
+            id="formulario-contato"
+            class="formulario revelar"
+            action="mailto:emanuellmarinho.dev@gmail.com"
+            method="post"
+            enctype="text/plain"
+          >
+            <div class="campo-duplo">
+              <div class="campo">
+                <label for="nome">Nome</label
+                ><input
+                  id="nome"
+                  name="nome"
+                  type="text"
+                  autocomplete="name"
+                  placeholder="Como você se chama?"
+                  required
+                />
+              </div>
+              <div class="campo">
+                <label for="email">E-mail</label
+                ><input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  placeholder="voce@exemplo.com"
+                  required
+                />
+              </div>
+            </div>
+            <div class="campo">
+              <label for="mensagem">Mensagem</label
+              ><textarea
+                id="mensagem"
+                name="mensagem"
+                rows="6"
+                placeholder="Conte um pouco sobre o projeto ou oportunidade"
+                required
+              ></textarea>
+            </div>
+            <div class="formulario-rodape">
+              <button type="submit">
+                Enviar mensagem <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <div class="container rodape-conteudo">
+        <p class="direitos">© 2026. Todos os direitos reservados.</p>
+        <nav class="redes" aria-label="Redes sociais">
+          <a
+            href="https://www.linkedin.com/in/emanuel-marinho"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn <span aria-hidden="true">↗</span
+            ><span class="somente-leitor"> (abre em nova aba)</span></a
+          >
+          <a
+            href="https://wa.me/5587981223752"
+            target="_blank"
+            rel="noopener noreferrer"
+            >WhatsApp <span aria-hidden="true">↗</span
+            ><span class="somente-leitor"> (abre em nova aba)</span></a
+          >
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
