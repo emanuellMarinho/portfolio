@@ -5,7 +5,7 @@ Portfólio estático em HTML, CSS e JavaScript, sem build ou backend.
 ## Executar
 
 ```sh
-python3 -m http.server 8080 --directory public
+python3 -m http.server 8080
 ```
 
 Acesse `http://localhost:8080`.
@@ -27,11 +27,11 @@ O formulário valida nome, e-mail e mensagem e abre o aplicativo de e-mail do vi
 
 ## Arquivos principais
 
-- `public/index.html`: conteúdo e estrutura.
-- `public/css/variaveis.css`: cores e medidas.
-- `public/css/global.css`: tipografia e estilos básicos.
-- `public/css/componentes.css`: layout das três seções.
-- `public/css/responsivo.css`: ajustes para telas menores.
-- `public/js/principal.js`: tema, revelação das seções, seção ativa e formulário de contato.
+- `index.html`: conteúdo e estrutura.
+- `css/variaveis.css`: cores e medidas.
+- `css/global.css`: tipografia e estilos básicos.
+- `css/componentes.css`: layout das três seções.
+- `css/responsivo.css`: ajustes para telas menores.
+- `js/principal.js`: tema, revelação das seções, seção ativa e formulário de contato.
 
-O `CNAME` e o redirecionamento da raiz foram preservados. Nenhum deploy foi realizado.
+O `CNAME` foi preservado e o site pode ser publicado diretamente pela raiz. Nenhum deploy foi realizado.

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="450" height="510" viewBox="0 0 450 510" fill="none">
+<defs><clipPath id="arco"><path d="M0 225a225 225 0 0 1 450 0v285H0Z"/></clipPath></defs>
+<g clip-path="url(#arco)"><path fill="#e0e6df" d="M0 0h450v510H0z"/><circle cx="328" cy="126" r="46" fill="#bf5739"/>
+<path d="M-40 412h530M-40 430h530M-40 448h530M-40 466h530M-40 484h530M-40 502h530" stroke="#c1cfc8"/>
+<path d="M57 540V229a77 77 0 0 1 154 0v126-126a77 77 0 0 1 154 0v311" stroke="#2856be" stroke-width="2"/>
+<path d="M75 540V229a59 59 0 0 1 118 0v126a18 18 0 0 0 36 0V229a59 59 0 0 1 118 0v311" stroke="#2856be" stroke-width="2"/>
+<path d="M93 540V229a41 41 0 0 1 82 0v126a36 36 0 0 0 72 0V229a41 41 0 0 1 82 0v311" stroke="#2856be" stroke-width="2"/>
+<path d="M111 540V229a23 23 0 0 1 46 0v126a54 54 0 0 0 108 0V229a23 23 0 0 1 46 0v311" stroke="#2856be" stroke-width="2"/>
+<path d="M129 540V229a5 5 0 0 1 10 0v126a72 72 0 0 0 144 0V229a5 5 0 0 1 10 0v311" stroke="#2856be" stroke-width="2"/>
+<circle cx="57" cy="342" r="5" fill="#1d3547"/><circle cx="347" cy="417" r="5" fill="#1d3547"/>
+<path d="M379 265h14m-7-7v14M31 130h14m-7-7v14" stroke="#6a7e75" stroke-width="1.5"/>
+</g></svg>
