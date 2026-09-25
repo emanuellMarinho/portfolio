@@ -1,5 +1,3 @@
-document.documentElement.classList.add("js");
-
 document.addEventListener("DOMContentLoaded", function () {
   const links = document.querySelectorAll('.navegacao a[href^="#"]');
   const secoes = document.querySelectorAll("main section[id]");
@@ -103,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
     void botaoTema.offsetWidth;
     botaoTema.classList.add("tema-clicado");
 
-    if (!document.startViewTransition || reduzMovimento || dispositivoAndroid) {
+    if (!document.startViewTransition) {
       aplicarTema(proximoEscuro);
       return;
     }
@@ -111,6 +109,22 @@ document.addEventListener("DOMContentLoaded", function () {
     const transicao = document.startViewTransition(function () {
       aplicarTema(proximoEscuro);
     });
+
+    /* Android e movimento reduzido: fade cruzado, só opacidade no compositor. */
+    if (reduzMovimento || dispositivoAndroid) {
+      transicao.ready.then(function () {
+        document.documentElement.animate(
+          { opacity: [0, 1] },
+          {
+            duration: 550,
+            easing: "ease-out",
+            pseudoElement: "::view-transition-new(root)",
+          },
+        );
+      });
+      return;
+    }
+
     transicao.ready.then(function () {
       document.documentElement.animate(
         {
@@ -129,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   const elementosRevelar = document.querySelectorAll(".revelar");
-  if (reduzMovimento || !("IntersectionObserver" in window)) {
+  if (!("IntersectionObserver" in window)) {
     elementosRevelar.forEach(function (elemento) {
       elemento.classList.add("visivel");
     });

@@ -126,17 +126,58 @@
   }
 }
 
+/* Movimento reduzido (inclui "Remover animações" e economia de bateria no
+   Android): sem deslocamentos nem loops, mas as entradas continuam em fade. */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
+
+  .orbita,
+  .anel,
+  .hero h1 span,
+  .formulario::before {
+    animation: none;
+  }
+
+  .hero-efeitos {
+    transform: none;
+  }
+
+  @keyframes entrada-hero {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes entrada-chip {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes entrada-item {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes entrada-campo {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes revelar {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes desenhar-linha {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes linha-titulo {
+    from {
+      opacity: 0;
+    }
   }
 }
 
