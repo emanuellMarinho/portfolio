@@ -35,11 +35,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!reduzMovimento && window.matchMedia("(pointer: fine)").matches) {
     let quadroPendente = false;
+    let caixa = null;
+    function invalidarCaixa() {
+      caixa = null;
+    }
+    window.addEventListener("scroll", invalidarCaixa, { passive: true });
+    window.addEventListener("resize", invalidarCaixa, { passive: true });
     hero.addEventListener("pointermove", function (evento) {
       if (quadroPendente) return;
       quadroPendente = true;
       window.requestAnimationFrame(function () {
-        const caixa = hero.getBoundingClientRect();
+        if (!caixa) caixa = hero.getBoundingClientRect();
         const proporcaoX = (evento.clientX - caixa.left) / caixa.width - 0.5;
         const proporcaoY = (evento.clientY - caixa.top) / caixa.height - 0.5;
         hero.style.setProperty("--movimento-x", `${proporcaoX * 18}px`);
@@ -130,17 +136,33 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     const observadorRevelar = new IntersectionObserver(
       function (entradas, observador) {
+        let ordem = 0;
         entradas.forEach(function (entrada) {
           if (!entrada.isIntersecting) return;
+          entrada.target.style.setProperty("--atraso", `${ordem * 0.12}s`);
           entrada.target.classList.add("visivel");
           observador.unobserve(entrada.target);
+          ordem += 1;
         });
       },
-      { threshold: 0.14 },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
     );
     elementosRevelar.forEach(function (elemento) {
       observadorRevelar.observe(elemento);
     });
+  }
+
+  if (!reduzMovimento && "IntersectionObserver" in window) {
+    const observadorPausa = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (entrada) {
+        entrada.target.classList.toggle("pausado", !entrada.isIntersecting);
+      });
+    });
+    document
+      .querySelectorAll(".hero, .formulario")
+      .forEach(function (elemento) {
+        observadorPausa.observe(elemento);
+      });
   }
 
   if ("IntersectionObserver" in window) {

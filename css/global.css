@@ -110,16 +110,21 @@ p {
 .pular-conteudo:focus {
   transform: translateY(0);
 }
-.js .revelar {
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+.js .revelar:not(.visivel) {
   opacity: 0;
-  transform: translateY(28px);
 }
 .js .revelar.visivel {
-  opacity: 1;
-  transform: translateY(0);
-  transition:
-    opacity 0.75s ease,
-    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: revelar 0.8s var(--curva-saida) var(--atraso, 0s) backwards;
+}
+@keyframes revelar {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0) scale(0.985);
+  }
 }
 ::view-transition-old(root),
 ::view-transition-new(root) {

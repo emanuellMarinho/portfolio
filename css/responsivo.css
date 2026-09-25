@@ -65,6 +65,67 @@
     gap: 1rem;
   }
 }
+/* Toque (Android e iOS): resposta imediata ao pressionar, sem filtros caros. */
+@media (hover: none) and (pointer: coarse) {
+  .tecnologias li {
+    background: color-mix(in srgb, var(--superficie) 94%, transparent);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .alternar-tema,
+  .tecnologias li,
+  .formulario button,
+  .redes a,
+  .navegacao a {
+    transition:
+      color 0.25s ease,
+      background-color 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease,
+      transform 0.4s var(--curva-mola);
+  }
+
+  .alternar-tema:active {
+    transform: scale(0.88);
+  }
+
+  .tecnologias li:active {
+    border-color: var(--azul);
+    transform: scale(0.95);
+  }
+
+  .formulario button:active {
+    filter: brightness(0.94);
+    transform: scale(0.97);
+  }
+
+  .navegacao a:active,
+  .redes a:active {
+    color: var(--azul);
+    transform: scale(0.95);
+  }
+
+  .alternar-tema:active,
+  .tecnologias li:active,
+  .formulario button:active,
+  .navegacao a:active,
+  .redes a:active {
+    transition-duration: 0.12s;
+  }
+}
+
+/* Rolagem guiada pelo navegador: roda no compositor, sem listeners de scroll. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .hero-conteudo {
+      animation: saida-hero linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 75vh;
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -109,8 +170,7 @@
     mask-image: none;
   }
 
-  html.android .hero h1 span,
-  html.android .formulario::before {
+  html.android .hero h1 span {
     animation: none;
   }
 
@@ -121,8 +181,6 @@
   }
 
   html.android .orbita {
-    filter: none;
-    will-change: transform;
     backface-visibility: hidden;
   }
 
@@ -136,16 +194,7 @@
 
   html.android .anel {
     animation-duration: 3.2s;
-    will-change: transform, opacity;
     backface-visibility: hidden;
-  }
-
-  html.android .revelar {
-    will-change: transform, opacity;
-  }
-
-  html.android .revelar.visivel {
-    will-change: auto;
   }
 
   html.android .formulario {
